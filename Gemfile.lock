@@ -3,7 +3,7 @@ PATH
   specs:
     living_document (0.1.0.alpha)
       activesupport (~> 6.0)
-      listen
+      listen (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
