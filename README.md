@@ -22,7 +22,7 @@ $ gem specific_install davidrunger/living_document
 
 # Usage
 
-Put this content into a file called `ruby_playground.rb`:
+Put this content into a file called `personal/ruby.rb`:
 
 ```rb
 # frozen_string_literal: true
@@ -50,10 +50,10 @@ The `###` things mean "insert the evaluated result of the above line of code her
 Then run this on your command line:
 
 ```
-$ livdoc ruby_playground.rb
+$ livdoc personal/ruby.rb
 ```
 
-Then go back to `ruby_playground.rb` in your editor and save the file. It should be transformed to
+Then go back to `personal/ruby.rb` in your editor and save the file. It should be transformed to
 this:
 
 ```rb
