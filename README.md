@@ -8,6 +8,16 @@ Evaluate Ruby statements inline while you edit the file! Great for creating docu
 # Table of Contents
 
 <!--ts-->
+   * [LivingDocument](#livingdocument)
+   * [Table of Contents](#table-of-contents)
+   * [Installation](#installation)
+   * [Usage](#usage)
+   * [Development](#development)
+   * [For maintainers](#for-maintainers)
+   * [License](#license)
+
+<!-- Added by: david, at: Sat Jun 20 15:08:46 PDT 2020 -->
+
 <!--te-->
 
 # Installation
