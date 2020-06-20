@@ -22,7 +22,7 @@ listener =
     random_seed = rand(1_000_000_000)
     printed_code_segments.each_with_index do |printed_code_segment, index|
       indexes_to_eval =
-        (0..index).to_a.reject { |index| known_erroring_segment_indexes.include?(index) }
+        (0..index).to_a.reject { |idx| known_erroring_segment_indexes.include?(idx) }
       groups_to_eval = [non_printed_code] + printed_code_segments.values_at(*indexes_to_eval)
 
       result = ':NONE:'

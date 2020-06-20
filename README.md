@@ -3,7 +3,7 @@
 
 # LivingDocument
 
-Validate the "shape" of Ruby objects!
+Evaluate Ruby statements inline while you edit the file! Great for creating documentation examples!
 
 # Table of Contents
 
@@ -22,9 +22,63 @@ $ gem specific_install davidrunger/living_document
 
 # Usage
 
+Put this content into a file called `ruby_playground.rb`:
+
+```rb
+# frozen_string_literal: true
+
+# rubocop:disable Lint/MissingCopEnableDirective,  Lint/RedundantCopDisableDirective, Lint/Void
+
+def puts(printed_value)
+  $printed_objects << printed_value
+end
+
+############
+
+1 + 2
+###
+
+5 / 0
+###
+
+puts('This is one great string!')
+###
+```
+
+The `###` things mean "insert the evaluated result of the above line of code here".
+
+Then run this on your command line:
+
 ```
 $ livdoc ruby_playground.rb
 ```
+
+Then go back to `ruby_playground.rb` in your editor and save the file. It should be transformed to
+this:
+
+```rb
+# frozen_string_literal: true
+
+# rubocop:disable Lint/MissingCopEnableDirective,  Lint/RedundantCopDisableDirective, Lint/Void
+
+def puts(printed_value)
+  $printed_objects << printed_value
+end
+
+############
+
+1 + 2
+# => 3
+
+5 / 0
+# => raises ZeroDivisionError
+
+puts('This is one great string!')
+# => prints "This is one great string!"
+```
+
+Then edit the file, save it, and see that the `# => ` comments are automatically and immediately
+updated! Keep rinsing and repeating!
 
 # Development
 
