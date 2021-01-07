@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/davidrunger/runger_style.git
-  revision: f7c19c578016914b58a216a71bc4193d276b1048
+  revision: 30fd5039ca79c0bb3975eaf41230fe1c5044b7d0
   specs:
-    runger_style (0.2.5)
+    runger_style (0.2.8)
 
 PATH
   remote: .
@@ -49,24 +49,26 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.0.3)
     rexml (3.2.4)
-    rubocop (0.93.0)
+    rubocop (1.8.0)
       parallel (~> 1.10)
-      parser (>= 2.7.1.5)
+      parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8)
+      regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 0.6.0)
+      rubocop-ast (>= 1.2.0, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 2.0)
+      unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.0)
       parser (>= 2.7.1.5)
     rubocop-performance (1.9.2)
       rubocop (>= 0.90.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rake (0.5.1)
+      rubocop
     ruby-progressbar (1.11.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (1.7.0)
+    unicode-display_width (2.0.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -79,7 +81,8 @@ DEPENDENCIES
   rake
   rubocop
   rubocop-performance
+  rubocop-rake
   runger_style!
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
