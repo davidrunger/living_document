@@ -7,14 +7,14 @@ GIT
 PATH
   remote: .
   specs:
-    living_document (0.1.1)
+    living_document (0.1.2.alpha)
       activesupport (~> 6.0)
       listen (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.0)
+    activesupport (6.1.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
