@@ -11,6 +11,6 @@ group :development, :test do
   gem 'rake'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
-  gem 'rubocop-rake'
+  gem 'rubocop-rake', require: false
   gem 'runger_style', github: 'davidrunger/runger_style', require: false
 end
