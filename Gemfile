@@ -14,3 +14,7 @@ group :development, :test do
   gem 'rubocop-rake', require: false
   gem 'runger_style', github: 'davidrunger/runger_style', require: false
 end
+
+group :development do
+  gem 'release_assistant', require: false, github: 'davidrunger/release_assistant'
+end
