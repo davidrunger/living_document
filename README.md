@@ -97,14 +97,13 @@ rake install`.
 
 # For maintainers
 
-To release a new version:
-1. check out the `master` branch
-2. update `CHANGELOG.md`
-3. update the version number in `version.rb`
-4. `bundle install` (which will update `Gemfile.lock`)
-5. commit the changes with a message like `Prepare to release v0.1.1`
-6. push the changes to `origin/master` (GitHub) via `git push`
-7. run `bin/release`, which will create a git tag for the version and push git commits and tags
+To release a new version, run `bin/release` with an appropriate `--type` option, e.g.:
+
+```
+bin/release --type minor
+```
+
+(This uses the `release_assistant` gem.)
 
 # License
 
