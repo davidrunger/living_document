@@ -1,3 +1,7 @@
+## Unreleased
+### Internal
+- Move CI from Travis to GitHub Actions
+
 ## v0.1.2 (2021-01-07)
 ### Internal
 - Added `rubocop-rake` gem
