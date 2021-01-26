@@ -17,7 +17,7 @@ GIT
 PATH
   remote: .
   specs:
-    living_document (0.1.4)
+    living_document (0.1.5.alpha)
       activesupport (~> 6.0)
       listen (~> 3.2)
 
