@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Living Document</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <div class="p-6">
+    <h2>Frontmatter</h2>
+    <div id="frontmatter" class="p-6" contenteditable="true"
+>require 'yaml'
+
+def puts(printed_value)
+  $printed_objects << printed_value
+end
+</div>
+  </div>
+  <div class="p-6">
+    <h2>Code (run with Cmd + Enter)</h2>
+    <div id="scratchpad" class="p-6" contenteditable="true"
+>a = 1
+b = 2
+a + b
+###
+
+7 / 0
+###
+
+puts('This is one nice string!')
+###
+
+YAML.load("---\nworks: true")
+###
+</div>
+  </div>
+  <script type="text/javascript" src="utils.js"></script>
+  <script type="text/javascript" src="livdoc.js"></script>
+</body>
+</html>

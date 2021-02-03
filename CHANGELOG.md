@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Added
+- Add web-based editor
 
 ## v0.1.4 (2021-01-26)
 ### Dependencies
