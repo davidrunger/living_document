@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Fixed
+- Run `livdocweb` with Ruby (not bash)
 
 ## v0.2.0 (2021-02-03)
 ### Added
