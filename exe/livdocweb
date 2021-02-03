@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# launch the Sinatra web server defined at `web/server.rb`
+$(dirname $0)/../web/server.rb

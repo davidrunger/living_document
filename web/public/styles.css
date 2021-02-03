@@ -1,0 +1,18 @@
+html {
+  font-family:
+}
+
+#frontmatter,
+#scratchpad {
+  border: 1px solid gray;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
+#scratchpad {
+  min-height: 40vh;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
