@@ -4,6 +4,7 @@
 
 ### Internal
 - Set up RSpec testing
+- Add some tests for `CodeEvaluator`
 
 ## v0.2.1 (2021-02-03)
 ### Fixed
