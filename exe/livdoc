@@ -17,10 +17,10 @@ listener =
     code_in_file = File.read('personal/ruby.rb')
     frontmatter = code_in_file[/\A.*############\n\n/m] || ''
     code_to_write =
-      LivingDocument::CodeEvaluator.new(
+      LivingDocument::DocumentEvaluator.new(
+        document: code_in_file.delete_prefix(frontmatter),
         frontmatter: frontmatter,
-        code: code_in_file.delete_prefix(frontmatter),
-      ).evaluated_code
+      ).evaluated_document
 
     $printed_objects_last_run = []
     puts("Writing file! #{Time.now}")

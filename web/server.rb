@@ -21,10 +21,10 @@ post '/run_code' do
   code = payload['code']
 
   evaluated_code =
-    LivingDocument::CodeEvaluator.new(
+    LivingDocument::DocumentEvaluator.new(
       frontmatter: frontmatter,
-      code: code,
-    ).evaluated_code
+      document: code,
+    ).evaluated_document
 
   content_type :json
   { evaluated_code: evaluated_code }.to_json

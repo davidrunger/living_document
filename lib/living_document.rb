@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/string/filters' # for `#squish`
+require 'memoist'
 
 module LivingDocument ; end
 
