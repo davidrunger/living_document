@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Added
+- Add support for evaluating Ruby code blocks within Markdown documents
 
 ## v0.2.2 (2021-02-03)
 ### Added

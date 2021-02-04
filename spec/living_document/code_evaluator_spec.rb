@@ -36,6 +36,42 @@ RSpec.describe LivingDocument::CodeEvaluator do
         end
 
         specify { expect(evaluated_code).to eq(expected_evaluated_code) }
+
+        it 'does not modify the original code string/object' do
+          expect(code).to include('###')
+        end
+      end
+
+      context 'when there are multiple code segments marked for evaluation' do
+        let(:code) do
+          <<~RUBY
+            1 + 2
+            ###
+
+            4 / 0
+            ###
+
+            99 - 66
+            ###
+          RUBY
+        end
+
+        let(:expected_evaluated_code) do
+          <<~RUBY
+            1 + 2
+            # => 3
+
+            4 / 0
+            # => raises ZeroDivisionError
+
+            99 - 66
+            # => 33
+          RUBY
+        end
+
+        it 'evaluates them all' do
+          expect(evaluated_code).to eq(expected_evaluated_code)
+        end
       end
 
       context 'when the `code` has a `# =>` evaluation marker' do

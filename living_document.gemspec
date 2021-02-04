@@ -29,5 +29,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency('activesupport', '~> 6.0')
   spec.add_runtime_dependency('listen', '~> 3.2')
+  spec.add_runtime_dependency('memoist', '~> 0.16')
   spec.add_runtime_dependency('sinatra', '~> 2.1')
 end

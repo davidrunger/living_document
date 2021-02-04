@@ -36,11 +36,12 @@ file is saved (or, if using the web-based editor, whenever the user hits `Cmd + 
       * [Via web-based editor](#via-web-based-editor)
          * [Why?](#why)
          * [How?](#how)
+   * [Markdown support](#markdown-support)
    * [Development](#development)
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Wed Feb  3 08:09:54 PST 2021 -->
+<!-- Added by: david, at: Thu Feb  4 01:14:41 PST 2021 -->
 
 <!--te-->
 
@@ -144,6 +145,47 @@ main section of code (for example, any necessary `require` statements) in the **
 section. This code will be evaluated before the code in the main **Code** section.
 
 [sinatra]: http://sinatrarb.com/
+
+# Markdown support
+
+LivingDocument can also handle Markdown code, which is especially convenient when developing
+documentation with examples.
+
+For example, LivingDocument will turn this...
+
+~~~markdown
+This is how you do addition in Ruby:
+
+```rb
+2 + 3
+###
+```
+
+This is how you do exponentiation in Ruby:
+
+```ruby
+2 ** 4
+###
+```
+~~~
+
+...into this...
+
+~~~markdown
+This is how you do addition in Ruby:
+
+```rb
+2 + 3
+# => 5
+```
+
+This is how you do exponentiation in Ruby:
+
+```ruby
+2 ** 4
+# => 16
+```
+~~~
 
 # Development
 
