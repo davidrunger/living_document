@@ -20,6 +20,7 @@ group :development do
 end
 
 group :test do
+  gem 'codecov', require: false
   gem 'guard-espect', require: false, github: 'davidrunger/guard-espect'
   gem 'rspec'
 end
