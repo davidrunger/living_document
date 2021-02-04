@@ -98,3 +98,20 @@ async function postData(url = '', data = {}) {
 
   return response.json();
 }
+
+function toggleCollapse(selector) {
+  const targets = Array.from(document.querySelectorAll(selector));
+  targets.forEach(target => {
+    target.classList.toggle('collapsed');
+  });
+}
+
+// Grab all the trigger elements on the page and listen for click events
+const collapseToggleTriggers = Array.from(document.querySelectorAll('[data-collapsible]'));
+window.addEventListener('click', (event) => {
+  const element = event.target;
+  if (collapseToggleTriggers.includes(element)) {
+    const selector = element.getAttribute('data-target');
+    toggleCollapse(selector);
+  }
+}, false);

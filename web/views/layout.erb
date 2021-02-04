@@ -6,10 +6,13 @@
   <title>Living Document</title>
   <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
-<body>
-  <div class="p-6">
-    <h2>Frontmatter</h2>
-    <div id="frontmatter" class="p-6" contenteditable="true"
+<body class="p-3">
+  <div class="p-3">
+    <h2>
+      Frontmatter
+      <button data-collapsible data-target="#frontmatter">Toggle</button>
+    </h2>
+    <div id="frontmatter" class="collapsible p-6" contenteditable="true"
 >require 'yaml'
 
 def puts(printed_value)
@@ -17,7 +20,7 @@ def puts(printed_value)
 end
 </div>
   </div>
-  <div class="p-6">
+  <div class="p-3">
     <h2>Code (run with Cmd + Enter)</h2>
     <div id="scratchpad" class="p-6" contenteditable="true"
 >a = 1

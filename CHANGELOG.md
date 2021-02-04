@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Added
+- Add ability to toggle the "Frontmatter" section in the web editor
 
 ## v0.2.1 (2021-02-03)
 ### Fixed
