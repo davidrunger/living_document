@@ -5,6 +5,7 @@
 ### Internal
 - Set up RSpec testing
 - Add some tests for `CodeEvaluator`
+- Add test coverage reporting (via `codecov` and `simplecov`)
 
 ## v0.2.1 (2021-02-03)
 ### Fixed

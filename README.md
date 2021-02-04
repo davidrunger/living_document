@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/davidrunger/living_document/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/living_document)
+
 # LivingDocument
 
 LivingDocument evaluates Ruby statements inline (either in your code editor or in the provided
