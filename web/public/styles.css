@@ -4,13 +4,29 @@ html {
 
 #frontmatter,
 #scratchpad {
-  border: 1px solid gray;
   white-space: pre-wrap;
   font-family: monospace;
 }
 
 #scratchpad {
   min-height: 40vh;
+}
+
+.bordered {
+  border: 1px solid gray;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
 }
 
 .p-3 {
