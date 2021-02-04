@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.4.0 (2021-02-04)
 ### Added
 - Render markdown preview next to web-based editor
