@@ -2,6 +2,9 @@
 ### Added
 - Add ability to toggle the "Frontmatter" section in the web editor
 
+### Internal
+- Set up RSpec testing
+
 ## v0.2.1 (2021-02-03)
 ### Fixed
 - Run `livdocweb` with Ruby (not bash)

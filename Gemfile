@@ -18,3 +18,8 @@ end
 group :development do
   gem 'release_assistant', require: false, github: 'davidrunger/release_assistant'
 end
+
+group :test do
+  gem 'guard-espect', require: false, github: 'davidrunger/guard-espect'
+  gem 'rspec'
+end
