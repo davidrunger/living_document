@@ -26,7 +26,7 @@ GIT
 PATH
   remote: .
   specs:
-    living_document (0.2.2)
+    living_document (0.2.3.alpha)
       activesupport (~> 6.0)
       listen (~> 3.2)
       sinatra (~> 2.1)
