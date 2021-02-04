@@ -59,6 +59,52 @@ RSpec.describe LivingDocument::CodeEvaluator do
 
         specify { expect(evaluated_code).to eq(expected_evaluated_code) }
       end
+
+      context 'when the code raises an error' do
+        let(:code) do
+          <<~RUBY
+            3 / 0
+            ###
+          RUBY
+        end
+
+        let(:expected_evaluated_code) do
+          <<~RUBY
+            3 / 0
+            # => raises ZeroDivisionError
+          RUBY
+        end
+
+        specify { expect(evaluated_code).to eq(expected_evaluated_code) }
+      end
+    end
+
+    context 'when the `frontmatter` is code to capture output from `puts`' do
+      let(:frontmatter) do
+        <<~RUBY
+          def puts(printed_value)
+            $printed_objects << printed_value
+          end
+        RUBY
+      end
+
+      context 'when the `code` prints something via `puts`' do
+        let(:code) do
+          <<~RUBY
+            puts('Hello testing world!')
+            ###
+          RUBY
+        end
+
+        let(:expected_evaluated_code) do
+          <<~RUBY
+            puts('Hello testing world!')
+            # => prints "Hello testing world!"
+          RUBY
+        end
+
+        specify { expect(evaluated_code).to eq(expected_evaluated_code) }
+      end
     end
   end
 end
