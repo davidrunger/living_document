@@ -11,6 +11,8 @@ document.addEventListener('keydown', event => {
       }).then(data => {
         scratchpadEl.innerText = data.evaluated_code;
         Cursor.setCurrentCursorPosition(caretPosition, scratchpadEl);
+        const renderedMarkdownEl = document.getElementById('rendered-markdown');
+        renderedMarkdownEl.innerHTML = data.rendered_markdown
       });
     } else {
       // The user has hit Enter to add a newline.

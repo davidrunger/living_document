@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Added
+- Render markdown preview next to web-based editor
 
 ## v0.3.0 (2021-02-04)
 ### Added

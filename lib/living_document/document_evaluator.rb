@@ -32,11 +32,11 @@ class LivingDocument::DocumentEvaluator
     end
   end
 
-  private
-
   def markdown?
     !markdown_codeblocks.empty?
   end
+
+  private
 
   def markdown_codeblocks
     @document.scan(/```(?:ruby|rb)\n(?:(?!```\n).)*```/mi)

@@ -26,10 +26,11 @@ GIT
 PATH
   remote: .
   specs:
-    living_document (0.3.1.alpha)
+    living_document (0.4.0.alpha)
       activesupport (~> 6.0)
       listen (~> 3.2)
       memoist (~> 0.16)
+      redcarpet (~> 3.5)
       sinatra (~> 2.1)
 
 GEM
@@ -95,6 +96,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redcarpet (3.5.1)
     regexp_parser (2.0.3)
     rexml (3.2.4)
     rspec (3.10.0)
