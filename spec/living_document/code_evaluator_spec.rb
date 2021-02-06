@@ -141,6 +141,26 @@ RSpec.describe LivingDocument::CodeEvaluator do
 
         specify { expect(evaluated_code).to eq(expected_evaluated_code) }
       end
+
+      context 'when the `code` prints multiple things via `puts`' do
+        let(:code) do
+          <<~RUBY
+            puts('Hello testing world!')
+            puts('Hello again!')
+            ###
+          RUBY
+        end
+
+        let(:expected_evaluated_code) do
+          <<~RUBY
+            puts('Hello testing world!')
+            puts('Hello again!')
+            # => prints "Hello testing world!", "Hello again!"
+          RUBY
+        end
+
+        specify { expect(evaluated_code).to eq(expected_evaluated_code) }
+      end
     end
   end
 end

@@ -9,11 +9,13 @@ class LivingDocument::CodeEvaluator
 
     @known_erroring_segment_indexes = []
     @random_seed = rand(1_000_000_000)
+
+    $printed_objects_last_run = []
   end
 
   def evaluated_code
     printed_code_segments.each_with_index do |printed_code_segment, index|
-      initialize_printed_object_globals
+      $printed_objects = []
 
       result =
         begin
@@ -27,7 +29,9 @@ class LivingDocument::CodeEvaluator
           "raises #{error.class}"
         end
 
-      result = %(prints "#{newly_printed_objects.first}") if newly_printed_objects.any?
+      if newly_printed_objects.any?
+        result = %(prints #{newly_printed_objects.map(&:inspect).join(', ')})
+      end
       remember_printed_objects
 
       swap_in_evaluated_code(printed_code_segment, result)
@@ -48,11 +52,6 @@ class LivingDocument::CodeEvaluator
 
   def indexes_to_eval(current_index)
     (0..current_index).to_a.reject { @known_erroring_segment_indexes.include?(_1) }
-  end
-
-  def initialize_printed_object_globals
-    $printed_objects_last_run ||= []
-    $printed_objects = []
   end
 
   def new_namespace
