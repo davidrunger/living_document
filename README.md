@@ -62,16 +62,6 @@ $ gem specific_install davidrunger/living_document
 Put this content into a file called `personal/ruby.rb`:
 
 ```rb
-# frozen_string_literal: true
-
-# rubocop:disable Lint/MissingCopEnableDirective,  Lint/RedundantCopDisableDirective, Lint/Void
-
-def puts(printed_value)
-  $printed_objects << printed_value
-end
-
-############
-
 1 + 2
 ###
 
@@ -92,16 +82,6 @@ Then go back to `personal/ruby.rb` in your editor and save the file. It should b
 this:
 
 ```rb
-# frozen_string_literal: true
-
-# rubocop:disable Lint/MissingCopEnableDirective,  Lint/RedundantCopDisableDirective, Lint/Void
-
-def puts(printed_value)
-  $printed_objects << printed_value
-end
-
-############
-
 1 + 2
 # => 3
 

@@ -14,6 +14,8 @@ class LivingDocument::CodeEvaluator
   end
 
   def evaluated_code
+    set_up_capturing_stdout
+
     printed_code_segments.each_with_index do |printed_code_segment, index|
       $printed_objects = []
 
@@ -37,10 +39,21 @@ class LivingDocument::CodeEvaluator
       swap_in_evaluated_code(printed_code_segment, result)
     end
 
+    restore_original_stdout
+
     @code
   end
 
   private
+
+  def set_up_capturing_stdout
+    @original_stdout = $stdout
+    $stdout = LivingDocument::CapturingStringIO.new
+  end
+
+  def restore_original_stdout
+    $stdout = @original_stdout
+  end
 
   def code_segments_to_eval(current_index)
     [@frontmatter] + printed_code_segments_to_eval(current_index)
@@ -56,7 +69,11 @@ class LivingDocument::CodeEvaluator
 
   def new_namespace
     random_seed = @random_seed
-    Module.new.tap { _1.instance_eval { srand(random_seed) } }
+    Module.new.tap do |new_module|
+      new_module.instance_eval do
+        srand(random_seed)
+      end
+    end
   end
 
   def newly_printed_objects

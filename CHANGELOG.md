@@ -1,6 +1,7 @@
 ## Unreleased
 ### Added
 - Support logging multiple printed outputs
+- Automatically monkeypatch `puts` to capture output
 
 ## v0.4.0 (2021-02-04)
 ### Added
