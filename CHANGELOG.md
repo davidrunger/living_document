@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Added
+- Support logging multiple printed outputs
 
 ## v0.4.0 (2021-02-04)
 ### Added
