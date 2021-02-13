@@ -26,7 +26,7 @@ GIT
 PATH
   remote: .
   specs:
-    living_document (0.5.1)
+    living_document (0.5.2.alpha)
       activesupport (~> 6.0)
       listen (~> 3.2)
       memoist (~> 0.16)
