@@ -2,6 +2,7 @@
 
 require 'active_support/core_ext/string/filters' # for `#squish`
 require 'memoist'
+# require 'stringio'
 
 module LivingDocument ; end
 
