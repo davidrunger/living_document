@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.5.2 (2021-02-13)
 ### Fixed
 - Actually fix "uninitialized constant StringIO" error when running `livdoc` executable
