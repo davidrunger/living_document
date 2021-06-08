@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant.git
-  revision: dbdd63c7191977d177461ac34ef6da4902199c56
+  revision: 1aa2ae68b9d66735f8ab7525f99d042257a698dc
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (~> 6.0)
@@ -49,7 +49,7 @@ GEM
       simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
     colorize (0.8.1)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
     docile (1.3.5)
     ffi (1.15.0)
@@ -142,7 +142,7 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
-    slop (4.9.0)
+    slop (4.9.1)
     thor (1.1.0)
     tilt (2.0.10)
     tzinfo (2.0.4)
