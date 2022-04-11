@@ -4,10 +4,7 @@ require 'spec_helper'
 
 RSpec.describe LivingDocument::DocumentEvaluator do
   subject(:document_evaluator) do
-    LivingDocument::DocumentEvaluator.new(
-      document: document,
-      frontmatter: frontmatter,
-    )
+    LivingDocument::DocumentEvaluator.new(document: document, frontmatter: frontmatter)
   end
 
   describe '#evaluated_document' do
