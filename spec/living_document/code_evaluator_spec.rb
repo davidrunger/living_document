@@ -90,6 +90,38 @@ RSpec.describe LivingDocument::CodeEvaluator do
       specify { expect(evaluated_code).to eq(expected_evaluated_code) }
     end
 
+    context 'when one of the evaluated statements is a string w/ a double quote' do
+      let(:code) do
+        <<~RUBY
+          '"a string with double quotes"' ###
+        RUBY
+      end
+
+      let(:expected_evaluated_code) do
+        <<~RUBY
+          '"a string with double quotes"' # => '"a string with double quotes"'
+        RUBY
+      end
+
+      specify { expect(evaluated_code).to eq(expected_evaluated_code) }
+    end
+
+    context 'when one of the evaluated statements is a string w/ an escaped double quote' do
+      let(:code) do
+        <<~RUBY
+          JSON({a: 1}) ###
+        RUBY
+      end
+
+      let(:expected_evaluated_code) do
+        <<~RUBY
+          JSON({a: 1}) # => '{"a":1}'
+        RUBY
+      end
+
+      specify { expect(evaluated_code).to eq(expected_evaluated_code) }
+    end
+
     context 'when the code raises an error' do
       let(:code) do
         <<~RUBY
