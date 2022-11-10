@@ -33,6 +33,8 @@ class LivingDocument::CodeEvaluator
 
       if newly_printed_objects.any?
         result = %(prints #{newly_printed_objects.map(&:inspect).join(', ')})
+      elsif result.include?('\"')
+        result = "'#{result.gsub('\"', '"')[1...-1]}'"
       end
       remember_printed_objects
 
