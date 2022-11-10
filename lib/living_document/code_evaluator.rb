@@ -28,7 +28,7 @@ class LivingDocument::CodeEvaluator
           # puts("ERROR: #{error.class}:#{error.message}")
           # puts(error.backtrace)
           @known_erroring_segment_indexes << index
-          "raises #{error.class}"
+          "raises #{error.class} (#{error.message})"
         end
 
       if newly_printed_objects.any?

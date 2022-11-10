@@ -56,7 +56,7 @@ RSpec.describe LivingDocument::CodeEvaluator do
           # => 3
 
           4 / 0
-          # => raises ZeroDivisionError
+          # => raises ZeroDivisionError (divided by 0)
 
           99 - 66
           # => 33
@@ -133,7 +133,7 @@ RSpec.describe LivingDocument::CodeEvaluator do
       let(:expected_evaluated_code) do
         <<~RUBY
           3 / 0
-          # => raises ZeroDivisionError
+          # => raises ZeroDivisionError (divided by 0)
         RUBY
       end
 
