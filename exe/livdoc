@@ -19,7 +19,7 @@ listener =
     code_to_write =
       LivingDocument::DocumentEvaluator.new(
         document: code_in_file.delete_prefix(frontmatter),
-        frontmatter: frontmatter,
+        frontmatter:,
       ).evaluated_document
 
     $printed_objects_last_run = []

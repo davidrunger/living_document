@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe LivingDocument::CodeEvaluator do
   subject(:code_evaluator) do
-    LivingDocument::CodeEvaluator.new(code: code, frontmatter: '')
+    LivingDocument::CodeEvaluator.new(code:, frontmatter: '')
   end
 
   describe '#evaluated_code' do

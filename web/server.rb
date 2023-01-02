@@ -23,7 +23,7 @@ post '/run_code' do
   code = payload['code']
 
   document_evaluator =
-    LivingDocument::DocumentEvaluator.new(frontmatter: frontmatter, document: code)
+    LivingDocument::DocumentEvaluator.new(frontmatter:, document: code)
   evaluated_document = document_evaluator.evaluated_document
   rendered_markdown =
     if document_evaluator.markdown?
@@ -36,5 +36,5 @@ post '/run_code' do
     end
 
   content_type :json
-  { evaluated_code: evaluated_document, rendered_markdown: rendered_markdown }.to_json
+  { evaluated_code: evaluated_document, rendered_markdown: }.to_json
 end

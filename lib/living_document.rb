@@ -6,4 +6,4 @@ require 'stringio'
 
 module LivingDocument ; end
 
-Dir["#{File.dirname(__FILE__)}/living_document/**/*.rb"].sort.each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/living_document/**/*.rb"].each { |file| require file }
