@@ -144,7 +144,7 @@ This is how you do addition in Ruby:
 This is how you do exponentiation in Ruby:
 
 ```ruby
-2 ** 4
+2**4
 ###
 ```
 ~~~
@@ -162,7 +162,7 @@ This is how you do addition in Ruby:
 This is how you do exponentiation in Ruby:
 
 ```ruby
-2 ** 4
+2**4
 # => 16
 ```
 ~~~
