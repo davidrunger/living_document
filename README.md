@@ -32,16 +32,16 @@ file is saved (or, if using the web-based editor, whenever the user hits `Cmd + 
    * [Table of Contents](#table-of-contents)
    * [Installation](#installation)
    * [Usage](#usage)
-      * [Via your own text editor](#via-your-own-text-editor)
+      * [Via text editor](#via-text-editor)
+      * [Markdown support](#markdown-support)
       * [Via web-based editor](#via-web-based-editor)
          * [Why?](#why)
          * [How?](#how)
-   * [Markdown support](#markdown-support)
    * [Development](#development)
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Thu Feb  4 01:14:41 PST 2021 -->
+<!-- Added by: david, at: Sat Jan 21 14:27:54 CST 2023 -->
 
 <!--te-->
 
@@ -57,7 +57,7 @@ $ gem specific_install davidrunger/living_document
 
 # Usage
 
-## Via your own text editor
+## Via text editor
 
 Put this content into a file called `personal/ruby.rb`:
 
@@ -95,6 +95,47 @@ puts('This is one great string!')
 Then edit the file, save it again, and see that the `# => ` comments are automatically and
 immediately updated! Keep rinsing and repeating!
 
+## Markdown support
+
+LivingDocument can also handle Markdown code, which is especially convenient when developing
+documentation with examples.
+
+For example, LivingDocument will turn this...
+
+~~~markdown
+This is how you do addition in Ruby:
+
+```rb
+2 + 3
+###
+```
+
+This is how you do exponentiation in Ruby:
+
+```ruby
+2**4
+###
+```
+~~~
+
+...into this...
+
+~~~markdown
+This is how you do addition in Ruby:
+
+```rb
+2 + 3
+# => 5
+```
+
+This is how you do exponentiation in Ruby:
+
+```ruby
+2**4
+# => 16
+```
+~~~
+
 ## Via web-based editor
 
 ### Why?
@@ -125,47 +166,6 @@ main section of code (for example, any necessary `require` statements) in the **
 section. This code will be evaluated before the code in the main **Code** section.
 
 [sinatra]: http://sinatrarb.com/
-
-# Markdown support
-
-LivingDocument can also handle Markdown code, which is especially convenient when developing
-documentation with examples.
-
-For example, LivingDocument will turn this...
-
-~~~markdown
-This is how you do addition in Ruby:
-
-```rb
-2 + 3
-###
-```
-
-This is how you do exponentiation in Ruby:
-
-```ruby
-2 ** 4
-###
-```
-~~~
-
-...into this...
-
-~~~markdown
-This is how you do addition in Ruby:
-
-```rb
-2 + 3
-# => 5
-```
-
-This is how you do exponentiation in Ruby:
-
-```ruby
-2 ** 4
-# => 16
-```
-~~~
 
 # Development
 
