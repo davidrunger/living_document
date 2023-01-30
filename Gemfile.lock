@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/davidrunger/release_assistant.git
-  revision: 24dff2d1f771861ac1510dc63cb8fcea89d4b652
+  revision: 7abd4db69bcc94461ae5acbc8084f7a00b7a5efe
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (>= 6, < 8)
@@ -28,7 +28,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.4.1)
+    activesupport (7.0.4.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -40,7 +40,7 @@ GEM
       simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
     colorize (0.8.1)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     diff-lcs (1.5.0)
     docile (1.4.0)
     ffi (1.15.5)
@@ -120,7 +120,7 @@ GEM
       tilt (~> 2.0)
     slop (4.9.3)
     tilt (2.0.11)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
 
