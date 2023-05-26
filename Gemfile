@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+ruby File.read('.ruby-version').rstrip
 
 # Specify your gem's dependencies in living_document.gemspec
 gemspec

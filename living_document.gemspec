@@ -12,7 +12,9 @@ Gem::Specification.new do |spec|
   spec.description   = 'Evaluate Ruby code live while editing a file!'
   spec.homepage      = 'https://github.com/davidrunger/living_document'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.2.0')
+
+  ruby_version = File.read('.ruby-version').rstrip
+  spec.required_ruby_version = Gem::Requirement.new(">= #{ruby_version}")
 
   spec.metadata['rubygems_mfa_required'] = 'true'
   spec.metadata['homepage_uri'] = spec.homepage
