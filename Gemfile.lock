@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    living_document (0.5.4)
+    living_document (0.5.5.alpha)
       activesupport (>= 6, < 8)
       listen (~> 3.2)
       memo_wise (>= 1.7, < 2)
