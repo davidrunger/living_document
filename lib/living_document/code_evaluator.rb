@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LivingDocument::CodeEvaluator
-  extend Memoist
+  prepend MemoWise
 
   def initialize(code:, frontmatter: nil)
     @code = code.dup
@@ -82,7 +82,7 @@ class LivingDocument::CodeEvaluator
     $printed_objects - $printed_objects_last_run
   end
 
-  memoize \
+  memo_wise \
   def printed_code_segments
     @code.scan(/(?:(?!###|# =>).)*(?:###|# =>)[^\n]*\s*/mi)
   end

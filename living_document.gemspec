@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency('activesupport', '>= 6', '< 8')
   spec.add_runtime_dependency('listen', '~> 3.2')
-  spec.add_runtime_dependency('memoist', '~> 0.16')
+  spec.add_runtime_dependency('memo_wise', '>= 1.7', '< 2')
   spec.add_runtime_dependency('redcarpet', '~> 3.5')
   spec.add_runtime_dependency('sinatra', '>= 2.1', '< 4.0')
 end
