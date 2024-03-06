@@ -34,5 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('listen', '~> 3.2')
   spec.add_runtime_dependency('memo_wise', '>= 1.7', '< 2')
   spec.add_runtime_dependency('redcarpet', '~> 3.5')
-  spec.add_runtime_dependency('sinatra', '>= 2.1', '< 4.0')
+  spec.add_runtime_dependency('sinatra', '>= 2.1', '< 5.0')
 end
