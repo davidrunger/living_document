@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/davidrunger/living_document'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = ">= #{File.read('.ruby-version').rstrip}")
+  spec.required_ruby_version = ">= #{File.read('.ruby-version').rstrip}"
 
   spec.metadata['rubygems_mfa_required'] = 'true'
   spec.metadata['homepage_uri'] = spec.homepage
