@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.6.0 (2024-06-15)
 - Renamed primary branch from `master` to `main`
 
