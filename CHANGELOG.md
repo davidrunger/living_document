@@ -1,4 +1,4 @@
-## Unreleased
+## v0.6.0 (2024-06-15)
 - Renamed primary branch from `master` to `main`
 
 ## v0.5.4 (2023-05-30)

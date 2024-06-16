@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module LivingDocument
-  VERSION = '0.5.5.alpha'
+  VERSION = '0.6.0'
 end
