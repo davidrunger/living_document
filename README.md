@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/davidrunger/living_document/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/living_document)
+[![codecov](https://codecov.io/gh/davidrunger/living_document/branch/main/graph/badge.svg)](https://codecov.io/gh/davidrunger/living_document)
 
 # LivingDocument
 
