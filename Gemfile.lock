@@ -2,11 +2,11 @@ PATH
   remote: .
   specs:
     living_document (0.7.1.alpha)
-      activesupport (>= 6, < 8)
+      activesupport (>= 6)
       listen (~> 3.2)
-      memo_wise (>= 1.7, < 2)
+      memo_wise (>= 1.7)
       redcarpet (~> 3.5)
-      sinatra (>= 2.1, < 5.0)
+      sinatra (>= 2.1)
 
 GEM
   remote: https://rubygems.org/
