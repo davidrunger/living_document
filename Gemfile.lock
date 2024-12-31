@@ -109,7 +109,7 @@ GEM
       rubocop (~> 1.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    runger_release_assistant (0.13.0)
+    runger_release_assistant (0.14.0)
       activesupport (>= 6)
       memo_wise (>= 1.7)
       rainbow (>= 3.0)
