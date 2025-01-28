@@ -173,7 +173,7 @@ DEPENDENCIES
   pry-byebug
   rake
   rspec
-  rubocop (!= 1.61.0)
+  rubocop
   rubocop-performance
   rubocop-rake
   runger_release_assistant
