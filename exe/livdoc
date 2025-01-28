@@ -6,15 +6,22 @@ require 'listen'
 
 require_relative '../lib/living_document.rb'
 
+file_path = ARGV[0]
+
+if file_path.nil?
+  puts('You must provide a file path argument, e.g. `livdoc personal/ruby.rb`.')
+  exit(1)
+end
+
 last_file_update = Time.now
 listener =
-  Listen.to("#{Dir.pwd}/personal/", only: /\A.*\.rb\z/) do |_modified, _added, _removed|
+  Listen.to(Dir.pwd, only: /\A#{Regexp.escape(file_path)}\z/) do |_modified, _added, _removed|
     # Don't enter infinitely recursive loop, since the code below triggers file updates.
     # After file has been updated, wait at least 0.5 seconds before listener processes again.
     next if (Time.now - last_file_update) < 0.5
 
     puts('Running code...')
-    code_in_file = File.read('personal/ruby.rb')
+    code_in_file = File.read(file_path)
     frontmatter = code_in_file[/\A.*############\n\n/m] || ''
     code_to_write =
       LivingDocument::DocumentEvaluator.new(
@@ -25,7 +32,7 @@ listener =
     $printed_objects_last_run = []
     puts("Writing file! #{Time.now}")
     last_file_update = Time.now
-    File.write('personal/ruby.rb', "#{frontmatter}#{code_to_write}")
+    File.write(file_path, "#{frontmatter}#{code_to_write}")
   end
 
 listener.start
