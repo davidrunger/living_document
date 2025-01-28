@@ -71,7 +71,7 @@ gem 'living_document', github: 'davidrunger/living_document'
 
 ## Via your own text editor
 
-Put this content into a file called `personal/ruby.rb`:
+Put the following content into a file. For this example, we'll call it `ruby.rb`, but you can use any file path that you like.
 
 ```rb
 1 + 2
@@ -84,14 +84,13 @@ puts('This is one great string!')
 ###
 ```
 
-Then run this on your command line:
+Then run `livdoc <path-to-your-file>` on your command line. In this example, that is:
 
 ```
-$ livdoc
+$ livdoc ruby.rb
 ```
 
-Then go back to `personal/ruby.rb` in your editor and save the file. It should be transformed to
-this:
+Then, go back to the file in your editor and save it. The file's content should be transformed to this:
 
 ```rb
 1 + 2
@@ -104,8 +103,7 @@ puts('This is one great string!')
 # => prints "This is one great string!"
 ```
 
-Then edit the file, save it again, and see that the `# => ` comments are automatically and
-immediately updated! Keep rinsing and repeating!
+Then, edit the file and save it again. You'll see that the `# => ` comments are automatically and immediately updated to reflect your edits.
 
 ## Via web-based editor
 
