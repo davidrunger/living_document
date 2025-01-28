@@ -11,7 +11,7 @@ group :development, :test do
   gem 'amazing_print'
   gem 'pry-byebug'
   gem 'rake'
-  gem 'rubocop', '!= 1.61.0', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rake', require: false
   gem 'runger_style', require: false
