@@ -55,6 +55,12 @@ $ gem install specific_install
 $ gem specific_install davidrunger/living_document
 ```
 
+Or, if you would like to add `living_document` to a `Gemfile`:
+
+```rb
+gem 'living_document', github: 'davidrunger/living_document'
+```
+
 # Usage
 
 ## Via your own text editor
