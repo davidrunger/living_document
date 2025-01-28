@@ -192,7 +192,7 @@ To release a new version, run `bin/release` with an appropriate `--type` option,
 bin/release --type minor
 ```
 
-(This uses the `release_assistant` gem.)
+(This uses the [`runger_release_assistant`](https://github.com/davidrunger/runger_release_assistant) gem.)
 
 # License
 
