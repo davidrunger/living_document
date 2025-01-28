@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
-
-# launch the Sinatra web server defined at `web/server.rb`
-exe_dir_path = File.expand_path(__dir__)
-web_server_executable_path = File.join(exe_dir_path, '../web/server.rb')
-exec web_server_executable_path
