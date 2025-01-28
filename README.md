@@ -8,14 +8,14 @@ web-based editor). This is great for creating documentation examples.
 For example, if you write this in your editor...
 
 ```rb
-(1..10).select { |integer| integer.even? }
+(1..10).select(&:even?)
 ###
 ```
 
 ...then when you save the file, it will be updated by LivingDocument to this...
 
 ```rb
-(1..10).select { |integer| integer.even? }
+(1..10).select(&:even?)
 # => [2, 4, 6, 8, 10]
 ```
 
