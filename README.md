@@ -47,7 +47,7 @@ file is saved (or, if using the web-based editor, whenever the user hits `Cmd + 
 
 # Installation
 
-This gem is not available via RubyGems (mostly because I don't want to take the gem name `living_document`, in case someone else has a better use for it). Therefore, you will need to install the gem from the GitHub source.
+This gem is not available via RubyGems, so you will need to install the gem from the GitHub source.
 
 One way to do that is via [`specific_install`](https://github.com/rdp/specific_install):
 
