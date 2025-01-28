@@ -19,7 +19,12 @@ For example, if you write this in your editor...
 # => [2, 4, 6, 8, 10]
 ```
 
-Subsequent edits, when saved, will automatically update the `# =>` result output line.
+Additionally, any subsequent edits, when saved, will also be reflected. For example, if you change `even?` to `odd?` in the above example (and save the file), then LivingDocument will update the output shown in the `# =>` line, producing:
+
+```rb
+(1..10).select(&:odd?)
+# => [1, 3, 5, 7, 9]
+```
 
 In other words, the special markers `###` and `# =>` tell LivingDocument to evaluate the line of
 code immediately above and insert the evaluated result at the position of the marker whenever the
