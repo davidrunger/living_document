@@ -6,6 +6,21 @@ require 'listen'
 
 require_relative '../lib/living_document.rb'
 
+# rubocop:disable Style/TopLevelMethodDefinition
+def evaluate_code_and_update_source_file(file_path)
+  puts('Running code...')
+  code_in_file = File.read(file_path)
+  code_to_write =
+    LivingDocument::DocumentEvaluator.new(
+      document: code_in_file,
+    ).evaluated_document
+
+  $printed_objects_last_run = []
+  puts("Writing file! #{Time.now}")
+  File.write(file_path, code_to_write)
+end
+# rubocop:enable Style/TopLevelMethodDefinition
+
 file_path = ARGV[0]
 
 if file_path.nil?
@@ -20,22 +35,15 @@ listener =
     # After file has been updated, wait at least 0.5 seconds before listener processes again.
     next if (Time.now - last_file_update) < 0.5
 
-    puts('Running code...')
-    code_in_file = File.read(file_path)
-    code_to_write =
-      LivingDocument::DocumentEvaluator.new(
-        document: code_in_file,
-      ).evaluated_document
+    evaluate_code_and_update_source_file(file_path)
 
-    $printed_objects_last_run = []
-    puts("Writing file! #{Time.now}")
     last_file_update = Time.now
-    File.write(file_path, code_to_write)
   end
 
 listener.start
 system('clear')
-puts('Waiting for a file save...')
+evaluate_code_and_update_source_file(file_path)
+puts('Waiting for file changes...')
 
 at_exit do
   print('Stopping listener ... ')
