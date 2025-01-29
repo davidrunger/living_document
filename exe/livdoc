@@ -8,15 +8,15 @@ require_relative '../lib/living_document.rb'
 
 def evaluate_code_and_update_source_file(file_path)
   puts('Running code...')
-    code_in_file = File.read(file_path)
-    code_to_write =
-      LivingDocument::DocumentEvaluator.new(
-        document: code_in_file,
-      ).evaluated_document
+  code_in_file = File.read(file_path)
+  code_to_write =
+    LivingDocument::DocumentEvaluator.new(
+      document: code_in_file,
+    ).evaluated_document
 
-    $printed_objects_last_run = []
-    puts("Writing file! #{Time.now}")
-    File.write(file_path, code_to_write)
+  $printed_objects_last_run = []
+  puts("Writing file! #{Time.now}")
+  File.write(file_path, code_to_write)
 end
 
 file_path = ARGV[0]
