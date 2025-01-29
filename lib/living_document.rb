@@ -3,6 +3,7 @@
 require 'active_support/core_ext/string/filters' # for `#squish`
 require 'memo_wise'
 require 'stringio'
+require 'timecop'
 
 module LivingDocument ; end
 
