@@ -171,7 +171,11 @@ RSpec.describe LivingDocument::CodeEvaluator do
         <<~RUBY
           puts('Hello testing world!')
           puts('Hello again!')
-          # => prints "Hello testing world!", "Hello again!"
+          # => prints:
+          =begin
+          Hello testing world!
+          Hello again!
+          =end
         RUBY
       end
 
