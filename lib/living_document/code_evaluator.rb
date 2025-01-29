@@ -15,29 +15,31 @@ class LivingDocument::CodeEvaluator
   def evaluated_code
     set_up_capturing_stdout
 
-    printed_code_segments.each_with_index do |printed_code_segment, index|
-      $printed_objects = []
+    Timecop.freeze do
+      printed_code_segments.each_with_index do |printed_code_segment, index|
+        $printed_objects = []
 
-      result =
-        begin
-          # we need to namespace any constants that would otherwise leak and persist globally
-          new_namespace.instance_eval(code_to_eval(index)).inspect.squish
-        rescue => error
-          # Comment these lines back in for debugging:
-          # puts("ERROR: #{error.class}:#{error.message}")
-          # puts(error.backtrace)
-          @known_erroring_segment_indexes << index
-          "raises #{error.class} (#{error.message})"
+        result =
+          begin
+            # we need to namespace any constants that would otherwise leak and persist globally
+            new_namespace.instance_eval(code_to_eval(index)).inspect.squish
+          rescue => error
+            # Comment these lines back in for debugging:
+            # puts("ERROR: #{error.class}:#{error.message}")
+            # puts(error.backtrace)
+            @known_erroring_segment_indexes << index
+            "raises #{error.class} (#{error.message})"
+          end
+
+        if newly_printed_objects.any?
+          result = %(prints #{newly_printed_objects.map(&:inspect).join(', ')})
+        elsif result.include?('\"')
+          result = "'#{result.gsub('\"', '"')[1...-1]}'"
         end
+        remember_printed_objects
 
-      if newly_printed_objects.any?
-        result = %(prints #{newly_printed_objects.map(&:inspect).join(', ')})
-      elsif result.include?('\"')
-        result = "'#{result.gsub('\"', '"')[1...-1]}'"
+        swap_in_evaluated_code(printed_code_segment, result)
       end
-      remember_printed_objects
-
-      swap_in_evaluated_code(printed_code_segment, result)
     end
 
     restore_original_stdout

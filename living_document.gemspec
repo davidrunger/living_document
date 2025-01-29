@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('activesupport', '>= 6')
   spec.add_dependency('listen', '>= 3.2')
   spec.add_dependency('memo_wise', '>= 1.7')
+  spec.add_dependency('timecop', '>= 0.9.10')
 end
