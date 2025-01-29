@@ -52,7 +52,7 @@ class LivingDocument::CodeEvaluator
     if newly_printed_output[0..-2].include?("\n")
       %(prints:\n#{commented_output(newly_printed_output)})
     else
-      %(prints: "#{newly_printed_output.rstrip}")
+      %(prints "#{newly_printed_output.rstrip}")
     end
   end
 
