@@ -11,7 +11,7 @@ PATH
   specs:
     living_document (0.8.1.alpha)
       activesupport (>= 6)
-      listen (~> 3.2)
+      listen (>= 3.2)
       memo_wise (>= 1.7)
 
 GEM

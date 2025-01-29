@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
 
   spec.add_dependency('activesupport', '>= 6')
-  spec.add_dependency('listen', '~> 3.2')
+  spec.add_dependency('listen', '>= 3.2')
   spec.add_dependency('memo_wise', '>= 1.7')
 end
