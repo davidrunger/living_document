@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/davidrunger/pry-byebug.git
+  revision: f6f73023ba081630ddee32ae4399fb31706f074f
+  specs:
+    pry-byebug (3.10.1)
+      byebug (>= 11.0)
+      pry (>= 0.13)
+
 PATH
   remote: .
   specs:
@@ -61,12 +69,9 @@ GEM
       ast (~> 2.4.1)
       racc
     prism (1.3.0)
-    pry (0.14.2)
+    pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-byebug (3.10.1)
-      byebug (~> 11.0)
-      pry (>= 0.13, < 0.15)
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
@@ -148,7 +153,8 @@ PLATFORMS
 DEPENDENCIES
   amazing_print
   living_document!
-  pry-byebug
+  pry
+  pry-byebug!
   rake
   rspec
   rubocop
@@ -195,8 +201,8 @@ CHECKSUMS
   parallel (1.26.3) sha256=d86babb7a2b814be9f4b81587bf0b6ce2da7d45969fab24d8ae4bf2bb4d4c7ef
   parser (3.3.7.0) sha256=7449011771e3e7881297859b849de26a6f4fccd515bece9520a87e7d2116119b
   prism (1.3.0) sha256=b11620829831b1cb7e6c9b46c81ff8a6e36ccb3f888f164485eb7351f386273a
-  pry (0.14.2) sha256=c4fe54efedaca1d351280b45b8849af363184696fcac1c72e0415f9bdac4334d
-  pry-byebug (3.10.1) sha256=c8f975c32255bfdb29e151f5532130be64ff3d0042dc858d0907e849125581f8
+  pry (0.15.2) sha256=12d54b8640d3fa29c9211dd4ffb08f3fd8bf7a4fd9b5a73ce5b59c8709385b6b
+  pry-byebug (3.10.1)
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.2.1) sha256=46cb38dae65d7d74b6020a4ac9d48afed8eb8149c040eccf0523bec91907059d
