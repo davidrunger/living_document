@@ -4,20 +4,19 @@ class LivingDocument::CodeEvaluator
   prepend MemoWise
 
   def initialize(code:)
-    @code = code.dup
+    @code = code.gsub(/^=begin\b.*?^=end\n/m, '')
 
     @known_erroring_segment_indexes = []
     @random_seed = rand(1_000_000_000)
 
-    $printed_objects_last_run = []
+    $printed_output_last_run = ''
   end
 
   def evaluated_code
-    set_up_capturing_stdout
-
     Timecop.freeze do
       printed_code_segments.each_with_index do |printed_code_segment, index|
-        $printed_objects = []
+        $printed_output = ''
+        set_up_capturing_stdout
 
         result =
           begin
@@ -31,8 +30,8 @@ class LivingDocument::CodeEvaluator
             "raises #{error.class} (#{error.message})"
           end
 
-        if newly_printed_objects.any?
-          result = %(prints #{newly_printed_objects.map(&:inspect).join(', ')})
+        if newly_printed_output.present?
+          result = result_for_printed_output
         elsif result.include?('\"')
           result = "'#{result.gsub('\"', '"')[1...-1]}'"
         end
@@ -49,9 +48,25 @@ class LivingDocument::CodeEvaluator
 
   private
 
+  def result_for_printed_output
+    if newly_printed_output[0..-2].include?("\n")
+      %(prints:\n#{commented_output(newly_printed_output)})
+    else
+      %(prints "#{newly_printed_output.rstrip}")
+    end
+  end
+
+  def commented_output(printed_output)
+    <<~COMMENTED_OUTPUT.rstrip
+      =begin
+      #{printed_output.delete_suffix("\n")}
+      =end
+    COMMENTED_OUTPUT
+  end
+
   def set_up_capturing_stdout
     @original_stdout = $stdout
-    $stdout = LivingDocument::CapturingStringIO.new
+    $stdout = StringIO.new
   end
 
   def restore_original_stdout
@@ -79,8 +94,9 @@ class LivingDocument::CodeEvaluator
     end
   end
 
-  def newly_printed_objects
-    $printed_objects - $printed_objects_last_run
+  def newly_printed_output
+    $printed_output = $stdout.string.dup
+    $printed_output.delete_prefix($printed_output_last_run)
   end
 
   memo_wise \
@@ -93,7 +109,7 @@ class LivingDocument::CodeEvaluator
   end
 
   def remember_printed_objects
-    $printed_objects_last_run = $printed_objects
+    $printed_output_last_run = $printed_output
   end
 
   def swap_in_evaluated_code(printed_code_segment, result)
