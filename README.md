@@ -108,7 +108,7 @@ To use this functionality, simply provide a markdown document as the target file
 $ livdoc README.md
 ```
 
-**NOTE:** Only code blocks that begin with `\`\`\`rb` or `\`\`\`ruby` will be evaluated.
+**NOTE:** Only code blocks that begin with `` ```rb `` or `` ```ruby `` will be evaluated.
 
 For example, LivingDocument will turn this...
 
