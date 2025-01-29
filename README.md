@@ -102,6 +102,14 @@ Then, edit the file and save it again. You'll see that the `# => ` comments are 
 LivingDocument can also handle Markdown code, which is especially convenient when developing
 documentation with examples.
 
+To utilize this functionality, simply provide a markdown document as the target file for `livdoc`, e.g.:
+
+```
+$ livdoc README.md
+```
+
+**NOTE:** Only code blocks that begin with `\`\`\`rb` or `\`\`\`ruby` will be evaluated.
+
 For example, LivingDocument will turn this...
 
 ~~~markdown
