@@ -1,4 +1,5 @@
 ## Unreleased
+- **BREAKING:** Remove web server functionality.
 - Make target file customizable.
 
 ## v0.8.0 (2024-12-10)

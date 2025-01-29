@@ -33,6 +33,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency('activesupport', '>= 6')
   spec.add_dependency('listen', '~> 3.2')
   spec.add_dependency('memo_wise', '>= 1.7')
-  spec.add_dependency('redcarpet', '~> 3.5')
-  spec.add_dependency('sinatra', '>= 2.1')
 end
