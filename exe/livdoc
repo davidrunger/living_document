@@ -6,6 +6,7 @@ require 'listen'
 
 require_relative '../lib/living_document.rb'
 
+# rubocop:disable Style/TopLevelMethodDefinition
 def evaluate_code_and_update_source_file(file_path)
   puts('Running code...')
   code_in_file = File.read(file_path)
@@ -18,6 +19,7 @@ def evaluate_code_and_update_source_file(file_path)
   puts("Writing file! #{Time.now}")
   File.write(file_path, code_to_write)
 end
+# rubocop:enable Style/TopLevelMethodDefinition
 
 file_path = ARGV[0]
 
