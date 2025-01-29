@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class LivingDocument::DocumentEvaluator
-  def initialize(document:, frontmatter: nil)
+  def initialize(document:)
     @document = document.dup
-    @frontmatter = frontmatter
   end
 
   def evaluated_document
@@ -14,7 +13,6 @@ class LivingDocument::DocumentEvaluator
         evaluated_ruby_code =
           LivingDocument::CodeEvaluator.new(
             code: ruby_code,
-            frontmatter: @frontmatter,
           ).evaluated_code
         @document[markdown_codeblock] =
           <<~EVALUATED_CODEBLOCK.rstrip
@@ -27,7 +25,6 @@ class LivingDocument::DocumentEvaluator
     else
       LivingDocument::CodeEvaluator.new(
         code: @document,
-        frontmatter: @frontmatter,
       ).evaluated_code
     end
   end

@@ -3,9 +3,8 @@
 class LivingDocument::CodeEvaluator
   prepend MemoWise
 
-  def initialize(code:, frontmatter: nil)
+  def initialize(code:)
     @code = code.dup
-    @frontmatter = frontmatter
 
     @known_erroring_segment_indexes = []
     @random_seed = rand(1_000_000_000)
@@ -58,7 +57,7 @@ class LivingDocument::CodeEvaluator
   end
 
   def code_segments_to_eval(current_index)
-    [@frontmatter] + printed_code_segments_to_eval(current_index)
+    printed_code_segments_to_eval(current_index)
   end
 
   def code_to_eval(current_index)

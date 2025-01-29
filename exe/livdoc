@@ -22,17 +22,15 @@ listener =
 
     puts('Running code...')
     code_in_file = File.read(file_path)
-    frontmatter = code_in_file[/\A.*############\n\n/m] || ''
     code_to_write =
       LivingDocument::DocumentEvaluator.new(
-        document: code_in_file.delete_prefix(frontmatter),
-        frontmatter:,
+        document: code_in_file,
       ).evaluated_document
 
     $printed_objects_last_run = []
     puts("Writing file! #{Time.now}")
     last_file_update = Time.now
-    File.write(file_path, "#{frontmatter}#{code_to_write}")
+    File.write(file_path, code_to_write)
   end
 
 listener.start
