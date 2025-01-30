@@ -146,6 +146,23 @@ This is how you do exponentiation in Ruby:
 ```
 ~~~
 
+# Time is frozen
+
+NOTE: Time is frozen (using [`timecop`](https://github.com/travisjeffery/timecop)) when your code is executed. This could cause unexpected results if your code depends the `Time` being different when different lines of code execute.
+
+To illustrate, note that `time_1` and `time_2` below are the same (which they wouldn't be, if run in a normal Ruby program).
+
+```rb
+time_1 = Time.now.iso8601(6)
+# => "2025-01-29T18:54:23.134962-06:00"
+
+time_2 = Time.now.iso8601(6)
+# => "2025-01-29T18:54:23.134962-06:00"
+
+time_2 > time_1
+# => false
+```
+
 # Development
 
 To install this gem onto your local machine from a development copy of the code, run `bundle exec
