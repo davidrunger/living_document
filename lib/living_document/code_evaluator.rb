@@ -70,7 +70,9 @@ class LivingDocument::CodeEvaluator
   end
 
   def restore_original_stdout
-    $stdout = @original_stdout
+    if @original_stdout.present?
+      $stdout = @original_stdout
+    end
   end
 
   def code_segments_to_eval(current_index)
