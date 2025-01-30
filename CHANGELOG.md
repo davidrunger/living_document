@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v1.1.1 (2025-01-30)
 - Fix exception when evaluating an empty target file. https://github.com/davidrunger/living_document/pull/608
 
