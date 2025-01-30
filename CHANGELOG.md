@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v1.1.0 (2025-01-29)
 - Support `-h`/`--help` and `-v`/`--version` CLI flags.
 
