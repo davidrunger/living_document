@@ -3,8 +3,16 @@
 # frozen_string_literal: true
 
 require 'listen'
+require 'optparse'
 
 require_relative '../lib/living_document.rb'
+
+parser = OptionParser.new
+parser.on('-v', '--version', 'Print the version') do
+  puts(LivingDocument::VERSION)
+  exit(0)
+end
+parser.parse!
 
 # rubocop:disable Style/TopLevelMethodDefinition
 def evaluate_code_and_update_source_file(file_path)
