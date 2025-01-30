@@ -47,19 +47,14 @@ In other words, the special markers `###` and `# =>` tell LivingDocument to eval
 
 ## Installation
 
-This gem is not available via RubyGems, so you will need to install the gem from the GitHub source.
-
-One way to do that is via [`specific_install`](https://github.com/rdp/specific_install):
-
 ```
-$ gem install specific_install
-$ gem specific_install davidrunger/living_document
+$ gem install living_document
 ```
 
-Or, if you would like to add `living_document` to a `Gemfile`:
+Or, if you would like to add it to a `Gemfile`:
 
 ```rb
-gem 'living_document', github: 'davidrunger/living_document'
+gem 'living_document'
 ```
 
 ## Usage
