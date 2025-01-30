@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v1.0.0 (2025-01-29)
 - **BREAKING:** Remove web server functionality.
 - **BREAKING:** Freeze time with `timecop` when executing code.
