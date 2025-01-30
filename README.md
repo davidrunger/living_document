@@ -27,25 +27,25 @@ Additionally, any subsequent edits, when saved, will also be reflected. For exam
 
 In other words, the special markers `###` and `# =>` tell LivingDocument to evaluate the line of code immediately above and insert the evaluated result at the position of the marker whenever the file is saved.
 
-# Table of Contents
+## Table of Contents
 
 <!--ts-->
 * [LivingDocument](#livingdocument)
-* [Table of Contents](#table-of-contents)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Markdown support](#markdown-support)
-* [Time is frozen](#time-is-frozen)
-* [Development](#development)
-* [For maintainers](#for-maintainers)
-* [License](#license)
+   * [Table of Contents](#table-of-contents)
+   * [Installation](#installation)
+   * [Usage](#usage)
+   * [Markdown support](#markdown-support)
+   * [Time is frozen](#time-is-frozen)
+   * [Development](#development)
+   * [For maintainers](#for-maintainers)
+   * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: david, at: Wed Jan 29 06:58:22 PM CST 2025 -->
+<!-- Added by: david, at: Wed Jan 29 07:45:21 PM CST 2025 -->
 
 <!--te-->
 
-# Installation
+## Installation
 
 This gem is not available via RubyGems, so you will need to install the gem from the GitHub source.
 
@@ -62,7 +62,7 @@ Or, if you would like to add `living_document` to a `Gemfile`:
 gem 'living_document', github: 'davidrunger/living_document'
 ```
 
-# Usage
+## Usage
 
 Put the following content into a file. For this example, we'll call it `ruby.rb`, but you can use any file path that you like.
 
@@ -98,7 +98,7 @@ puts('This is one great string!')
 
 Then, edit the file and save it again. You'll see that the `# => ` comments are automatically and immediately updated to reflect your edits.
 
-# Markdown support
+## Markdown support
 
 LivingDocument can also handle Markdown code, which is especially convenient when developing
 documentation with examples.
@@ -147,7 +147,7 @@ This is how you do exponentiation in Ruby:
 ```
 ~~~
 
-# Time is frozen
+## Time is frozen
 
 NOTE: Time is frozen (using [`timecop`](https://github.com/travisjeffery/timecop)) when your code is executed. This could cause unexpected results if your code depends the `Time` being different when different lines of code execute.
 
@@ -164,12 +164,12 @@ time_2 > time_1
 # => false
 ```
 
-# Development
+## Development
 
 To install this gem onto your local machine from a development copy of the code, run `bundle exec
 rake install`.
 
-# For maintainers
+## For maintainers
 
 To release a new version, run `bin/release` with an appropriate `--type` option, e.g.:
 
@@ -179,7 +179,7 @@ bin/release --type minor
 
 (This uses the [`runger_release_assistant`](https://github.com/davidrunger/runger_release_assistant) gem.)
 
-# License
+## License
 
 The gem is available as open source under the terms of the [MIT
 License](https://opensource.org/licenses/MIT).
