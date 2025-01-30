@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Support `-h`/`--help` and `-v`/`--version` CLI flags.
 
 ## v1.0.0 (2025-01-29)
 - **BREAKING:** Remove web server functionality.
