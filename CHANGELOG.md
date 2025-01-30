@@ -1,5 +1,6 @@
 ## Unreleased
 - **BREAKING:** Remove web server functionality.
+- **BREAKING:** Freeze time with `timecop` when executing code.
 - Make target file customizable.
 
 ## v0.8.0 (2024-12-10)
