@@ -1,4 +1,4 @@
-## Unreleased
+## v1.1.1 (2025-01-30)
 - Fix exception when evaluating an empty target file. https://github.com/davidrunger/living_document/pull/608
 
 ## v1.1.0 (2025-01-29)
