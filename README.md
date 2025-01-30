@@ -35,12 +35,13 @@ In other words, the special markers `###` and `# =>` tell LivingDocument to eval
 * [Installation](#installation)
 * [Usage](#usage)
 * [Markdown support](#markdown-support)
+* [Time is frozen](#time-is-frozen)
 * [Development](#development)
 * [For maintainers](#for-maintainers)
 * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: david, at: Tue Jan 28 08:42:03 PM CST 2025 -->
+<!-- Added by: david, at: Wed Jan 29 06:58:22 PM CST 2025 -->
 
 <!--te-->
 
