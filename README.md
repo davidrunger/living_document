@@ -2,7 +2,7 @@
 
 # LivingDocument
 
-LivingDocument evaluates Ruby statements inline in your code editor, which can be particularly useful when writing examples of Ruby code for documentation purposes.
+LivingDocument evaluates Ruby code live and inline in your editor while you edit a Ruby file, or a Markdown file that includes Ruby code snippets. This is useful for quickly exploring ideas in Ruby code, since it can be faster and more convenient than working in IRB or running a Ruby script repeatedly as you edit it. It's also great for editing README.md documentation while ensuring the accuracy of example code snippets.
 
 For example, if you write this in your editor...
 
