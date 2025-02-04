@@ -1,5 +1,9 @@
 [![codecov](https://codecov.io/gh/davidrunger/living_document/branch/main/graph/badge.svg)](https://codecov.io/gh/davidrunger/living_document)
 
+<p align="center">
+  <img src="https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/living_document.gif" />
+</p>
+
 # LivingDocument
 
 LivingDocument evaluates Ruby code live and inline in your editor while you edit a Ruby file, or a Markdown file that includes Ruby code snippets. This is useful for quickly exploring ideas in Ruby code, since it can be faster and more convenient than working in IRB or running a Ruby script repeatedly as you edit it. It's also great for editing README.md documentation while ensuring the accuracy of example code snippets.
