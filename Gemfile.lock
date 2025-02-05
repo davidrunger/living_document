@@ -173,12 +173,10 @@ PLATFORMS
 
 DEPENDENCIES
   amazing_print
-  irb
   living_document!
   pry
   pry-byebug!
   rake
-  reline
   rspec
   rubocop
   rubocop-performance
