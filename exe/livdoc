@@ -37,8 +37,15 @@ if file_path.nil?
 end
 
 last_file_update = Time.now
+
+expanded_file_path = File.expand_path(file_path)
+file_name = File.basename(expanded_file_path)
+
 listener =
-  Listen.to(Dir.pwd, only: /\A#{Regexp.escape(file_path)}\z/) do |_modified, _added, _removed|
+  Listen.to(
+    File.dirname(expanded_file_path),
+    only: /\A#{Regexp.escape(file_name)}\z/,
+  ) do |_modified, _added, _removed|
     # Don't enter infinitely recursive loop, since the code below triggers file updates.
     # After file has been updated, wait at least 0.5 seconds before listener processes again.
     next if (Time.now - last_file_update) < 0.5
