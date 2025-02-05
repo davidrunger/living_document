@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'lib/living_document/platform_check'
 require_relative 'lib/living_document/version'
 
 Gem::Specification.new do |spec|
+  LivingDocument.check_platform!
+
   spec.name          = 'living_document'
   spec.version       = LivingDocument::VERSION
   spec.authors       = ['David Runger']
@@ -31,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
 
   spec.add_dependency('activesupport', '>= 6')
-  spec.add_dependency('listen', '>= 3.2')
   spec.add_dependency('memo_wise', '>= 1.7')
+  spec.add_dependency('rb-inotify', '>= 0.11.1')
   spec.add_dependency('timecop', '>= 0.9.10')
 end
