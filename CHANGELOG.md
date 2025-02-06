@@ -1,5 +1,7 @@
 ## Unreleased
-[no unreleased changes yet]
+- Offer to create the provided target file, if it doesn't yet exist.
+- Document compatibility with VS Code and NeoVim.
+- Automatically open the target file in editor, if `$EDITOR` is set.
 
 ## v2.0.0 (2025-02-05)
 - **BREAKING:** Use `rb-inotify` (not `listen`) to watch for file changes. This means that the gem is now only compatible with Linux.
