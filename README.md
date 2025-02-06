@@ -39,6 +39,9 @@ In other words, the special markers `###` and `# =>` tell LivingDocument to eval
    * [Linux only <g-emoji class="g-emoji" alias="warning">⚠️</g-emoji>](#️-linux-only-️)
    * [Installation](#installation)
    * [Usage](#usage)
+   * [Editor compatibility](#editor-compatibility)
+      * [VS Code](#vs-code)
+      * [NeoVim](#neovim)
    * [Markdown support](#markdown-support)
    * [Time is frozen](#time-is-frozen)
    * [Development](#development)
@@ -46,7 +49,7 @@ In other words, the special markers `###` and `# =>` tell LivingDocument to eval
    * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: david, at: Wed Feb  5 09:31:36 PM CST 2025 -->
+<!-- Added by: david, at: Wed Feb  5 11:12:42 PM CST 2025 -->
 
 <!--te-->
 
@@ -101,6 +104,28 @@ puts('This is one great string!')
 ```
 
 Then, edit the file and save it again. You'll see that the `# => ` comments are automatically and immediately updated to reflect your edits.
+
+## Editor compatibility
+
+### VS Code
+
+LivingDocument should work with VS Code "out of the box".
+
+### NeoVim
+
+For LivingDocument to work with NeoVim, you will need to add config like this to your `init.lua`:
+
+```lua
+-- Auto-reload files changed outside NeoVim.
+vim.opt.autoread = true
+-- Preserve inodes when saving / modify files in place.
+vim.opt.backupcopy = 'yes'
+-- Check for changes when switching buffers, cursor idles, or NeoVim regains focus.
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+```
 
 ## Markdown support
 
