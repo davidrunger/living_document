@@ -68,6 +68,10 @@ expanded_path = File.expand_path(file_path)
 
 ask_to_create_file_if_needed(expanded_path)
 
+if system('[ -n "$EDITOR" ]')
+  system("$EDITOR #{expanded_path}")
+end
+
 notifier = INotify::Notifier.new
 last_file_update = Time.now
 
