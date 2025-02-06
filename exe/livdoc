@@ -2,6 +2,7 @@
 
 # frozen_string_literal: true
 
+require 'io/console'
 require 'optparse'
 require 'rb-inotify'
 
@@ -34,6 +35,26 @@ def evaluate_code_and_update_source_file(file_path, evaluation_reason:)
 
   puts('waiting for changes.')
 end
+
+def ask_to_create_file_if_needed(expanded_path)
+  if !File.exist?(expanded_path)
+    puts(<<~QUESTION)
+      The target file (#{expanded_path}) does not exist.
+      Would you like living_document to create it? [y]n
+    QUESTION
+
+    case $stdin.getch
+    when 'n', "\u0003" # Ctrl-C
+      puts('Okay, then, exiting.')
+      exit(0)
+    when 'y', "\r"
+      FileUtils.touch(expanded_path)
+    else
+      puts("\nThat's not an option.\n\n")
+      ask_to_create_file_if_needed(expanded_path)
+    end
+  end
+end
 # rubocop:enable Style/TopLevelMethodDefinition
 
 file_path = ARGV[0]
@@ -44,6 +65,9 @@ if file_path.nil?
 end
 
 expanded_path = File.expand_path(file_path)
+
+ask_to_create_file_if_needed(expanded_path)
+
 notifier = INotify::Notifier.new
 last_file_update = Time.now
 
