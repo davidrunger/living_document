@@ -1,4 +1,5 @@
 ## Unreleased
+- **BREAKING:** Use `rb-inotify` (not `listen`) to watch for file changes. This means that the gem is now only compatible with Linux.
 - Support listening to files outside of the current directory.
 
 ## v1.1.1 (2025-01-30)

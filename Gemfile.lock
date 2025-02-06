@@ -11,8 +11,8 @@ PATH
   specs:
     living_document (1.1.2.alpha)
       activesupport (>= 6)
-      listen (>= 3.2)
       memo_wise (>= 1.7)
+      rb-inotify (>= 0.11.1)
       timecop (>= 0.9.10)
 
 GEM
@@ -63,9 +63,6 @@ GEM
       reline (>= 0.4.2)
     json (2.9.1)
     language_server-protocol (3.17.0.4)
-    listen (3.9.0)
-      rb-fsevent (~> 0.10, >= 0.10.3)
-      rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.6.5)
     memo_wise (1.10.0)
     method_source (1.1.0)
@@ -87,7 +84,6 @@ GEM
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
-    rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rdoc (6.11.0)
@@ -215,7 +211,6 @@ CHECKSUMS
   irb (1.15.1) sha256=d9bca745ac4207a8b728a52b98b766ca909b86ff1a504bcde3d6f8c84faae890
   json (2.9.1) sha256=d2bdef4644052fad91c1785d48263756fe32fcac08b96a20bb15840e96550d11
   language_server-protocol (3.17.0.4) sha256=c484626478664fd13482d8180947c50a8590484b1258b99b7aedb3b69df89669
-  listen (3.9.0) sha256=db9e4424e0e5834480385197c139cb6b0ae0ef28cc13310cfd1ca78377d59c67
   living_document (1.1.2.alpha)
   logger (1.6.5) sha256=c3cfe56d01656490ddd103d38b8993d73d86296adebc5f58cefc9ec03741e56b
   memo_wise (1.10.0) sha256=ae40ff8e7799697ff5d59d739b8766f76be22eba69c7c8468edb42ab83c94c3f
@@ -232,7 +227,6 @@ CHECKSUMS
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.2.1) sha256=46cb38dae65d7d74b6020a4ac9d48afed8eb8149c040eccf0523bec91907059d
-  rb-fsevent (0.11.2) sha256=43900b972e7301d6570f64b850a5aa67833ee7d87b458ee92805d56b7318aefe
   rb-inotify (0.11.1) sha256=a0a700441239b0ff18eb65e3866236cd78613d6b9f78fea1f9ac47a85e47be6e
   rdoc (6.11.0) sha256=bec66fb9b019be64f7ba7d2cd2aecb283a3a01fef23a95b33e2349c6d1aa0040
   regexp_parser (2.10.0) sha256=cb6f0ddde88772cd64bff1dbbf68df66d376043fe2e66a9ef77fcb1b0c548c61

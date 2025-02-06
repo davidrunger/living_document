@@ -13,6 +13,8 @@ class LivingDocument::CodeEvaluator
   end
 
   def evaluated_code
+    save_original_stdout
+
     Timecop.freeze do
       printed_code_segments.each_with_index do |printed_code_segment, index|
         $printed_output = ''
@@ -20,33 +22,44 @@ class LivingDocument::CodeEvaluator
 
         result =
           begin
-            # we need to namespace any constants that would otherwise leak and persist globally
-            new_namespace.instance_eval(code_to_eval(index)).inspect.squish
+            # We need to namespace any constants that would otherwise leak and persist globally.
+            new_namespace.
+              instance_eval(code_to_eval(index)).
+              inspect.
+              squish.
+              then do |evaluated_result|
+                if newly_printed_output.present?
+                  result_for_printed_output
+                else
+                  formatted_evaluated_result(evaluated_result)
+                end
+              end
           rescue => error
-            # Comment these lines back in for debugging:
-            # puts("ERROR: #{error.class}:#{error.message}")
-            # puts(error.backtrace)
             @known_erroring_segment_indexes << index
+
             "raises #{error.class} (#{error.message})"
           end
 
-        if newly_printed_output.present?
-          result = result_for_printed_output
-        elsif result.include?('\"')
-          result = "'#{result.gsub('\"', '"')[1...-1]}'"
-        end
-        remember_printed_objects
+        remember_printed_output
 
         swap_in_evaluated_code(printed_code_segment, result)
       end
     end
 
-    restore_original_stdout
-
     @code
+  ensure
+    restore_original_stdout
   end
 
   private
+
+  def formatted_evaluated_result(evaluated_result)
+    if evaluated_result.include?('\"') && !evaluated_result.include?("'")
+      "'#{evaluated_result.gsub('\"', '"')[1...-1]}'"
+    else
+      evaluated_result
+    end
+  end
 
   def result_for_printed_output
     if newly_printed_output[0..-2].include?("\n")
@@ -64,8 +77,11 @@ class LivingDocument::CodeEvaluator
     COMMENTED_OUTPUT
   end
 
-  def set_up_capturing_stdout
+  def save_original_stdout
     @original_stdout = $stdout
+  end
+
+  def set_up_capturing_stdout
     $stdout = StringIO.new
   end
 
@@ -76,7 +92,7 @@ class LivingDocument::CodeEvaluator
   end
 
   def code_segments_to_eval(current_index)
-    printed_code_segments_to_eval(current_index)
+    printed_code_segments.values_at(*indexes_to_eval(current_index))
   end
 
   def code_to_eval(current_index)
@@ -106,11 +122,7 @@ class LivingDocument::CodeEvaluator
     @code.scan(/(?:(?!###|# =>).)*(?:###|# =>)[^\n]*\s*/mi)
   end
 
-  def printed_code_segments_to_eval(current_index)
-    printed_code_segments.values_at(*indexes_to_eval(current_index))
-  end
-
-  def remember_printed_objects
+  def remember_printed_output
     $printed_output_last_run = $printed_output
   end
 

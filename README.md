@@ -36,6 +36,7 @@ In other words, the special markers `###` and `# =>` tell LivingDocument to eval
 <!--ts-->
 * [LivingDocument](#livingdocument)
    * [Table of Contents](#table-of-contents)
+   * [Linux only <g-emoji class="g-emoji" alias="warning">⚠️</g-emoji>](#️-linux-only-️)
    * [Installation](#installation)
    * [Usage](#usage)
    * [Markdown support](#markdown-support)
@@ -45,9 +46,13 @@ In other words, the special markers `###` and `# =>` tell LivingDocument to eval
    * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: david, at: Wed Jan 29 07:45:21 PM CST 2025 -->
+<!-- Added by: david, at: Wed Feb  5 09:31:36 PM CST 2025 -->
 
 <!--te-->
+
+## ⚠️ Linux only ⚠️
+
+`living_document` relies on [`rb-inotify`](https://github.com/guard/rb-inotify), which provides efficient file system event notifications using the Linux inotify API. Since inotify is exclusive to the Linux kernel, the functionality provided by `rb-inotify` cannot be replicated on other operating systems. Since `living_document` relies on `rb-inotify` for efficient file system watching, `living_document` also only works on Linux.
 
 ## Installation
 

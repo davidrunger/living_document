@@ -2,8 +2,8 @@
 
 # frozen_string_literal: true
 
-require 'listen'
 require 'optparse'
+require 'rb-inotify'
 
 require_relative '../lib/living_document.rb'
 
@@ -15,17 +15,24 @@ end
 parser.parse!
 
 # rubocop:disable Style/TopLevelMethodDefinition
-def evaluate_code_and_update_source_file(file_path)
-  puts('Running code...')
+def evaluate_code_and_update_source_file(file_path, evaluation_reason:)
+  print("#{Time.now.iso8601} #{evaluation_reason} ... ")
+  # NOTE: This sleep seems to be necessary to interact reliably with VS Code.
+  sleep(0.015)
   code_in_file = File.read(file_path)
+
+  print('running code ... ')
   code_to_write =
     LivingDocument::DocumentEvaluator.new(
       document: code_in_file,
     ).evaluated_document
 
-  $printed_objects_last_run = []
-  puts("Writing file! #{Time.now}")
+  # NOTE: This sleep seems to be necessary to interact reliably with VS Code.
+  sleep(0.015)
+  print('writing file ... ')
   File.write(file_path, code_to_write)
+
+  puts('waiting for changes.')
 end
 # rubocop:enable Style/TopLevelMethodDefinition
 
@@ -36,34 +43,31 @@ if file_path.nil?
   exit(1)
 end
 
+expanded_path = File.expand_path(file_path)
+notifier = INotify::Notifier.new
 last_file_update = Time.now
 
-expanded_file_path = File.expand_path(file_path)
-file_name = File.basename(expanded_file_path)
+notifier.watch(expanded_path, :modify) do |_event|
+  # Don't enter infinitely recursive loop, since the code below triggers file updates.
+  # After file has been updated, wait at least 0.2 seconds before listener processes again.
+  next if (Time.now - last_file_update) < 0.2
 
-listener =
-  Listen.to(
-    File.dirname(expanded_file_path),
-    only: /\A#{Regexp.escape(file_name)}\z/,
-  ) do |_modified, _added, _removed|
-    # Don't enter infinitely recursive loop, since the code below triggers file updates.
-    # After file has been updated, wait at least 0.5 seconds before listener processes again.
-    next if (Time.now - last_file_update) < 0.5
+  evaluate_code_and_update_source_file(expanded_path, evaluation_reason: 'Detected file change')
 
-    evaluate_code_and_update_source_file(file_path)
-
-    last_file_update = Time.now
-  end
-
-listener.start
-system('clear')
-evaluate_code_and_update_source_file(file_path)
-puts('Waiting for file changes...')
+  last_file_update = Time.now
+end
 
 at_exit do
   print('Stopping listener ... ')
-  listener.stop
+  notifier.close
   puts('done.')
 end
 
-sleep
+system('clear')
+evaluate_code_and_update_source_file(expanded_path, evaluation_reason: 'Launching')
+
+begin
+  notifier.run
+rescue Interrupt
+  # Exit gracefully, having run `at_exit` block.
+end
