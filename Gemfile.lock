@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    living_document (2.1.0)
+    living_document (2.1.1.alpha)
       activesupport (>= 6)
       memo_wise (>= 1.7)
       rb-inotify (>= 0.11.1)
@@ -211,7 +211,7 @@ CHECKSUMS
   irb (1.15.1) sha256=d9bca745ac4207a8b728a52b98b766ca909b86ff1a504bcde3d6f8c84faae890
   json (2.9.1) sha256=d2bdef4644052fad91c1785d48263756fe32fcac08b96a20bb15840e96550d11
   language_server-protocol (3.17.0.4) sha256=c484626478664fd13482d8180947c50a8590484b1258b99b7aedb3b69df89669
-  living_document (2.1.0)
+  living_document (2.1.1.alpha)
   logger (1.6.5) sha256=c3cfe56d01656490ddd103d38b8993d73d86296adebc5f58cefc9ec03741e56b
   memo_wise (1.10.0) sha256=ae40ff8e7799697ff5d59d739b8766f76be22eba69c7c8468edb42ab83c94c3f
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5

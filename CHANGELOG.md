@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v2.1.0 (2025-02-05)
 - Offer to create the provided target file, if it doesn't yet exist.
 - Document compatibility with VS Code and NeoVim.
