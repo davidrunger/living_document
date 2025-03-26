@@ -100,7 +100,7 @@ class LivingDocument::CodeEvaluator
   end
 
   def indexes_to_eval(current_index)
-    (0..current_index).to_a.reject { @known_erroring_segment_indexes.include?(_1) }
+    (0..current_index).to_a.reject { @known_erroring_segment_indexes.include?(it) }
   end
 
   def new_namespace
