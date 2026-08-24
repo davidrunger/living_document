@@ -78,7 +78,9 @@ last_file_update = Time.now
 notifier.watch(expanded_path, :modify) do |_event|
   # Don't enter infinitely recursive loop, since the code below triggers file updates.
   # After file has been updated, wait at least 0.2 seconds before listener processes again.
-  next if (Time.now - last_file_update) < 0.2
+  if (Time.now - last_file_update) < 0.2
+    next
+  end
 
   evaluate_code_and_update_source_file(expanded_path, evaluation_reason: 'Detected file change')
 
